@@ -359,5 +359,8 @@ fabric.properties
 # Sonarlint plugin
 .idea/sonarlint
 
+node_modules/
+.expo/
+npm-debug.*
 
 # End of https://www.gitignore.io/api/node,webstorm,reactnative
