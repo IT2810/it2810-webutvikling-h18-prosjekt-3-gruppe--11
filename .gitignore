@@ -362,5 +362,6 @@ fabric.properties
 node_modules/
 .expo/
 npm-debug.*
+.idea
 
 # End of https://www.gitignore.io/api/node,webstorm,reactnative
