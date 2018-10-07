@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Header, Title, Left, Body, Right } from "native-base";
+import { Header, Title } from "native-base";
 
 export class AppHeader extends Component {
    render() {
        return(
-           <Header transparent style={{backgroundColor: "#87cefa"}}>
-               <Left/>
-               <Body style={{}}>
-               <Title>Todays List</Title>
-               </Body>
-               <Right/>
+           <Header transparent style={{backgroundColor: "#f2c413"}}>
+               <Title>Moren din sin liste</Title>
            </Header>
        );
    }

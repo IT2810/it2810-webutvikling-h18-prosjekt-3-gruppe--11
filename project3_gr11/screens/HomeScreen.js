@@ -35,13 +35,6 @@ export default class HomeScreen extends Component {
   };
 }
 
-//TEST
-const nativeBaseStyles = StyleSheet.create({
-    container: {
-        alignItems: 'center'
-    }
-});
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
