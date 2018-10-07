@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { Platform, ScrollView, StyleSheet, View, Text } from 'react-native';
+import { Platform, ScrollView, StyleSheet } from 'react-native';
 import { WebBrowser } from 'expo';
-import {Container, Content, Header, Title} from 'native-base';
+import {Container, Content } from 'native-base';
 import { SwipeableList } from "../components/SwipableList";
 import { listData } from "../constants/ToDosListData";
+import { AppHeader } from "../components/AppHeader";
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -11,10 +12,10 @@ export default class HomeScreen extends Component {
   };
 
   render() {
-
     return (
       <ScrollView style={styles.container}>
             <Container>
+                <AppHeader/>
             <Content>
                 <SwipeableList todos={listData}/>
             </Content>
