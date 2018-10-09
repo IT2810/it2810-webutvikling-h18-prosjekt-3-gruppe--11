@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, ScrollView, StyleSheet } from 'react-native';
+import { Platform, ScrollView, StyleSheet, Text } from 'react-native';
 import { WebBrowser } from 'expo';
 import {Container, Content } from 'native-base';
 import { SwipeableList } from "../components/SwipableList";

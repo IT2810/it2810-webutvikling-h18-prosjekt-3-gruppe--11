@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
-import { Button, Icon, List, ListItem, Text } from 'native-base';
+import { CheckBox, Button, Icon, List, ListItem, Text, Body } from 'native-base';
 
 export class SwipeableList extends Component {
     constructor(props) {
@@ -30,7 +30,10 @@ export class SwipeableList extends Component {
                 renderRow={data =>
                     <ListItem>
                         {/*TODO: Add to-do's here*/}
+                        <CheckBox checked={false} />
+                        <Body>
                         <Text> {data} </Text>
+                        </Body>
                     </ListItem>}
                 renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
