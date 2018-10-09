@@ -7,7 +7,7 @@ export class AppHeader extends Component {
            <Header transparent style={{backgroundColor: "#87cefa"}}>
                <Left/>
                <Body style={{}}>
-               <Title>Todays List</Title>
+               <Title>Today's List</Title>
                </Body>
                <Right/>
            </Header>
