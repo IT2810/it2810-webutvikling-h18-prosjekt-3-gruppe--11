@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import {Body, CheckBox, ListItem, Text} from "native-base";
+import {CheckBox} from "native-base";
 
 export class Checkbox extends Component{
     constructor(props) {
         super(props);
-        this.state={
+        this.state = {
             checked: false,
         }
     }
+    {/* Creates a checkbox */}
     render() {
         return (
             <CheckBox

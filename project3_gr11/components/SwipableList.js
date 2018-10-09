@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
-import { CheckBox, Button, Icon, List, ListItem, Text, Body } from 'native-base';
+import { Button, Icon, List, ListItem, Text } from 'native-base';
 import { Checkbox } from './Checkbox';
 
 export class SwipeableList extends Component {
