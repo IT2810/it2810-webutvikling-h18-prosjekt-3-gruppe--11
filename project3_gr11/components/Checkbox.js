@@ -8,7 +8,7 @@ export class Checkbox extends Component{
             checked: false,
         }
     }
-    {/* Creates a checkbox */}
+    /* Creates a checkbox */
     render() {
         return (
             <CheckBox
