@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { CheckBox, Button, Icon, List, ListItem, Text, Body } from 'native-base';
+import { Checkbox } from './Checkbox';
 
 export class SwipeableList extends Component {
     constructor(props) {
@@ -10,7 +11,6 @@ export class SwipeableList extends Component {
             basic: true,
             //Takes in an array of to-do's
             listViewData: this.props.todos,
-            checked: false,
         };
     }
     deleteRow(secId, rowId, rowMap) {
@@ -30,12 +30,8 @@ export class SwipeableList extends Component {
                 dataSource={this.ds.cloneWithRows(this.state.listViewData)}
                 renderRow={data =>
                     <ListItem>
-                        <CheckBox
-                            checked={this.state.checked}
-                            onPress={() => this.setState({checked: !this.state.checked})}/>
-                        <Body>
+                        <Checkbox/>
                         <Text> {data} </Text>
-                        </Body>
                     </ListItem>}
                 renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
