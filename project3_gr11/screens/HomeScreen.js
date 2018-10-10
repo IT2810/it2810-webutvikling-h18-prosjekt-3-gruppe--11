@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Platform, ScrollView, StyleSheet, Text } from 'react-native';
 import { WebBrowser } from 'expo';
-import {Container, Content } from 'native-base';
+import { Container, Content } from 'native-base';
 import { SwipeableList } from "../components/SwipableList";
 import { listData } from "../constants/ToDosListData";
 import { AppHeader } from "../components/AppHeader";
@@ -23,24 +23,7 @@ export default class HomeScreen extends Component {
       </ScrollView>
     );
   }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
-}
-
-//TEST
-const nativeBaseStyles = StyleSheet.create({
-    container: {
-        alignItems: 'center'
-    }
-});
+};
 
 const styles = StyleSheet.create({
   container: {

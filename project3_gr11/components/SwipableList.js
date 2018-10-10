@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { Button, Icon, List, ListItem, Text } from 'native-base';
 import { Checkbox } from './Checkbox';
+import { deleteRow } from "../utils";
 
 export class SwipeableList extends Component {
     constructor(props) {
@@ -13,14 +14,7 @@ export class SwipeableList extends Component {
             listViewData: this.props.todos,
         };
     }
-    deleteRow(secId, rowId, rowMap) {
-        /*
-        rowMap[`${secId}${rowId}`].props.closeRow();
-        const newData = [...this.state.listViewData];
-        newData.splice(rowId, 1);
-        this.setState({ listViewData: newData });
-        */
-    }
+
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
