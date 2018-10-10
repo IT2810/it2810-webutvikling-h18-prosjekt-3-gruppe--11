@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "my-new-project",
-    "description": "A very interesting project.",
-    "slug": "my-new-project",
+    "name": "Today's List",
+    "description": "A to-do list.",
+    "slug": "todays-list",
     "privacy": "public",
     "sdkVersion": "30.0.0",
     "platforms": ["ios", "android"],
