@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
 import { Button, Icon, List, ListItem, Text } from 'native-base';
+import { Checkbox } from './Checkbox';
 
 export class SwipeableList extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ export class SwipeableList extends Component {
                 dataSource={this.ds.cloneWithRows(this.state.listViewData)}
                 renderRow={data =>
                     <ListItem>
-                        {/*TODO: Add to-do's here*/}
+                        <Checkbox/>
                         <Text> {data} </Text>
                     </ListItem>}
                 renderRightHiddenRow={(data, secId, rowId, rowMap) =>
