@@ -7,10 +7,13 @@ import {
   Text,
   TouchableOpacity,
   View,
+    Switch
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { Button, Content } from 'native-base';
-import { _pushNotification } from "../api/pushNotifications";
+import { dailyNotification } from "../api/pushNotifications";
+import { NotificationSwitch } from "../components/NotificationSwitch";
+import { Notifications } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
@@ -18,6 +21,28 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  constructor(props) {
+      super(props);
+      this.state ={
+        //TODO: enableNotification should be saved via asyncStorage
+        enableNotification: false
+      }
+  }
+
+  //Toggle daily reminder
+  toggleNotification = (value) => {
+      this.setState({enableNotification: value});
+        if(value == true) {
+            console.log("Notifications are on");
+            //Schedule daily reminder
+            dailyNotification();
+        } else {
+            console.log("Notifications are off");
+            //If toggle is of, remove scheduled notification
+            Notifications.cancelAllScheduledNotificationsAsync;
+        }
+  }
 
   render() {
     return (
@@ -35,10 +60,8 @@ export default class HomeScreen extends React.Component {
           </View>
 
             <Content>
-          <Button info onPress={ () => _pushNotification() }>
-              {/*TODO: import NativeBase Text*/}
-              <Text>Notification test</Text>
-          </Button>
+          {/*Toggle daily reminder*/}
+          <NotificationSwitch toggleNotif={this.toggleNotification} notifValue={this.state.enableNotification}/>
             </Content>
 
         </ScrollView>
