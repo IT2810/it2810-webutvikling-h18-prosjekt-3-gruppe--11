@@ -5,6 +5,7 @@ import {Container, Content } from 'native-base';
 import { SwipeableList } from "../components/SwipableList";
 import { listData } from "../constants/ToDosListData";
 import { AppHeader } from "../components/AppHeader";
+import InputField from "../components/InputField";
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -16,7 +17,8 @@ export default class HomeScreen extends Component {
       <ScrollView style={styles.container}>
             <Container>
                 <AppHeader/>
-            <Content>
+                <Content>
+                <InputField/>
                 <SwipeableList todos={listData}/>
             </Content>
         </Container>
