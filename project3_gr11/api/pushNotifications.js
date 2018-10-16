@@ -12,13 +12,12 @@ export function dailyNotification(){
     scheduledNotification();
 
     //Trigger a local notification immediately, for testing purposes
-    //Notifications.presentLocalNotificationAsync(localNotification);
+    // Notifications.presentLocalNotificationAsync(localNotification);
 }
 
 //TODO: Edit notification description
 const localNotification = {
     title: 'What are you going to do today?',
-    body: 'You have X amount of tasks today.',
     ios: {
         sound: true,
     },

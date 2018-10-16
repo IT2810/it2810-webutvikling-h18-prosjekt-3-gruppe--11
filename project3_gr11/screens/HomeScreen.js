@@ -27,13 +27,11 @@ export default class HomeScreen extends Component {
   toggleNotification = (value) => {
       this.setState({enableNotification: value});
         if(value == true) {
-            console.log("Notifications are on");
             //Schedule daily reminder
             dailyNotification();
         } else {
-            console.log("Notifications are off");
             //If toggle is of, remove scheduled notification
-            Notifications.cancelAllScheduledNotificationsAsync;
+            Notifications.cancelAllScheduledNotificationsAsync();
         }
   }
 
