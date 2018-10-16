@@ -1,19 +1,40 @@
 //Expo API for local, scheduled notifications
-import { Component } from 'react';
 import { Permissions, Notifications } from 'expo';
 
-//TODO: check scheduling notification, only if time < scheduled time
 //Date object for selecting time of the day
 let scheduledTime = new Date();
 scheduledTime.setHours(9);
 scheduledTime.setMinutes(0);
 scheduledTime.setSeconds(0);
 
-export function _pushNotification(){
-    _scheduledNotification();
+export function dailyNotification(){
+    console.log("Scheduled notification set to: " + scheduledTime);
+    scheduledNotification();
+
+    //Trigger a local notification immediately, for testing purposes
+    //Notifications.presentLocalNotificationAsync(localNotification);
 }
 
-async function _obtainUserFacingNotifPermissionsAsync() {
+//TODO: Edit notification description
+const localNotification = {
+    title: 'What are you going to do today?',
+    body: 'You have X amount of tasks today.',
+    ios: {
+        sound: true,
+    },
+    android: {
+        vibrate: true,
+    }
+};
+
+const schedulingOptions =  {
+    //Set time for notification
+    time: scheduledTime.getTime(),
+    //Repeat daily
+    repeat: "day"
+};
+
+async function obtainUserFacingNotifPermissionsAsync() {
     let permission = await Permissions.getAsync(Permissions.USER_FACING_NOTIFICATIONS);
     if (permission.status !== 'granted') {
         permission = await Permissions.askAsync(Permissions.USER_FACING_NOTIFICATIONS);
@@ -24,28 +45,9 @@ async function _obtainUserFacingNotifPermissionsAsync() {
     return permission;
 };
 
-async function _scheduledNotification(){
-    await _obtainUserFacingNotifPermissionsAsync();
-    Notifications.scheduleLocalNotificationAsync({
-
-        title: 'What are you going to do today?',
-        //TODO: Edit notification description
-        body: 'You have X amount of tasks today.',
-/*
-        //attach data to notification, prolly no need?
-        data: {
-            hello: 'there',
-            future: 'self'
-        },*/
-        ios: {
-            sound: true,
-        },
-        android: {
-            vibrate: true,
-        },
-    },
-    {
-        time: scheduledTime.getTime(),
-        repeat: "day"
-    });
+async function scheduledNotification(){
+    //Check for notification permission
+    await obtainUserFacingNotifPermissionsAsync();
+    //Schedule notification
+    Notifications.scheduleLocalNotificationAsync(localNotification, schedulingOptions );
 };
