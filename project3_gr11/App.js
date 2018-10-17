@@ -1,12 +1,37 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
-import HomeScreen from "./screens/HomeScreen";
+import { ScrollView, StyleSheet, View} from 'react-native';
+import {AppLoading, Asset, Font, Icon, Notifications} from 'expo';
+import {Container, Content, Header, Title} from "native-base";
+import {SwipeableList} from "./components/SwipableList";
+import {listData} from "./constants/ToDosListData";
+import AddTask from "./components/AddTask";
+import {dailyNotification} from "./api/pushNotifications";
+import {NotificationSwitch} from "./components/NotificationSwitch";
 
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
+
+    constructor(props) {
+        super(props);
+        this.state ={
+            //TODO: enableNotification should be saved via asyncStorage
+            enableNotification: false
+        }
+    }
+
+    //Toggle daily reminder
+    toggleNotification = (value) => {
+        this.setState({enableNotification: value});
+        if(value == true) {
+            //Schedule daily reminder
+            dailyNotification();
+        } else {
+            //If toggle is of, remove scheduled notification
+            Notifications.cancelAllScheduledNotificationsAsync();
+        }
+    }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -20,8 +45,19 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <HomeScreen />
+            <Header transparent style={{backgroundColor: "#f2c413"}}>
+                <Title>Moren din sin liste</Title>
+            </Header>
+            <ScrollView style={styles.container}>
+                <Container>
+                    <Content>
+                        <AddTask/>
+                        <SwipeableList todos={listData}/>
+                    </Content>
+                    {/*Toggle daily reminder*/}
+                    <NotificationSwitch toggleNotif={this.toggleNotification} notifValue={this.state.enableNotification}/>
+                </Container>
+            </ScrollView>
         </View>
       );
     }
