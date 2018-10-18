@@ -47,18 +47,23 @@ export class TheList extends Component {
         console.log(this.state.selectedTodoId);
     }
 
-
+    // Deletes the selected item from the list
     deleteRow(secId, rowId, rowMap) {
         // Grab reference to this row
         rowMap[`${secId}${rowId}`].props.closeRow();
         const newData = [...this.state.listOfTodos];
+        // Shrink the list from the rowsId
         newData.splice(rowId, 1);
+        // Set the new array above
         this.setState({ listOfTodos: newData });
         const mordi = {hei: secId, hallo: rowId, fardi: rowMap};
         console.log(mordi.hei);
         console.log(mordi.hallo);
     }
     render() {
+        // Checks if  row is changes and set it as true,
+        // and set the new defines the new related data to the data source
+        // r1 = old, r2 = new (if it's alike then it's true and row is changed)
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
             <View>
@@ -73,6 +78,7 @@ export class TheList extends Component {
                 <List
                     rightOpenValue={-75}
                     enableEmptySections={true}
+                    // Set the datasource to the array with the list of todos
                     dataSource={this.ds.cloneWithRows(this.state.listOfTodos)}
                     renderRow={(listOfTodos) =>
                         <ListItem>
@@ -85,6 +91,7 @@ export class TheList extends Component {
                             <Text>{listOfTodos.task}</Text>
                         </ListItem>}
                     renderRightHiddenRow={(data, secId, rowId, rowMap) =>
+                        /* Takes the references to the selected row and takes it in the function */
                         <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
                             <Icon active name="trash" />
                         </Button>
