@@ -14,7 +14,6 @@ export async function storeData(key, value) {
 //Fetching data
 export async function retrieveData(key)  {
     try {
-        //Retrieve data as boolean [x]
         const value =  await AsyncStorage.getItem(key);
         const retrievedItem = JSON.parse(value);
         return retrievedItem;
@@ -27,7 +26,6 @@ export async function retrieveData(key)  {
 export async function removeData(key) {
     try {
         await AsyncStorage.removeItem(key);
-        console.log("item removed");
     } catch (error) {
         console.log(error);
     }

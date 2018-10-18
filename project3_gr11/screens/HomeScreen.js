@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Platform, ScrollView, StyleSheet, Text, Switch } from 'react-native';
-import { WebBrowser } from 'expo';
+import { Platform, ScrollView, StyleSheet } from 'react-native';
 import {Container, Content } from 'native-base';
 import { SwipeableList } from "../components/SwipableList";
 import { listData } from "../constants/ToDosListData";
@@ -18,7 +17,7 @@ export default class HomeScreen extends Component {
 
   constructor(props) {
       super(props);
-      this.state ={
+      this.state = {
         enableNotification: false
       }
   }
@@ -29,7 +28,7 @@ export default class HomeScreen extends Component {
     //Get state of enabledNotification saved in Asyncstorage
     retrieveData('dailyReminder').then((item) => {
         this.setState ({
-            enableNotification: (item == true)
+            enableNotification: (item === true)
         });
     }).catch((error) => {
         console.log("Promise is rejected: " + error);
@@ -41,7 +40,7 @@ export default class HomeScreen extends Component {
   //Toggle daily reminder
   toggleNotification = (value) => {
       this.setState({enableNotification: value});
-      if(value == true) {
+      if(value === true) {
           //Schedule daily reminder
           dailyNotification();
       } else {
@@ -50,7 +49,7 @@ export default class HomeScreen extends Component {
       }
       //Save toggled daily reminder to AsyncStorage
       storeData('dailyReminder', value);
-  }
+  };
 
   render() {
       return (
