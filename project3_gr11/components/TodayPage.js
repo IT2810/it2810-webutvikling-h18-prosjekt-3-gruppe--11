@@ -2,7 +2,7 @@ import React from "react";
 import {dailyNotification} from "../api/pushNotifications";
 import { Notifications } from "expo";
 import {Container, Content, Footer, Header, Title} from "native-base";
-import {SwipeableList} from "./SwipableList";
+import {TheList} from "./TheList";
 import {NotificationSwitch} from "./NotificationSwitch";
 
 export default class TodayPage extends React.Component {
@@ -33,11 +33,11 @@ export default class TodayPage extends React.Component {
                         <Title>Moren din sin liste</Title>
                     </Header>
                     <Content>
-                        {/*<AddTodo/>*/}
-                        <SwipeableList />
-                        {/*Toggle daily reminder*/}
+                        <TheList />
+
                     </Content>
                     <Footer>
+                        {/* Toggle daily reminder */}
                         <NotificationSwitch toggleNotif={this.toggleNotification}
                                             notifValue={this.state.enableNotification}/>
                     </Footer>
