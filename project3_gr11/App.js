@@ -1,13 +1,12 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
-import HomeScreen from "./screens/HomeScreen";
+import { StyleSheet, View} from 'react-native';
+import {AppLoading, Asset, Font, Icon } from 'expo';
+import TodayPage from "./components/TodayPage";
 
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
-
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -20,8 +19,7 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <HomeScreen />
+            <TodayPage/>
         </View>
       );
     }
