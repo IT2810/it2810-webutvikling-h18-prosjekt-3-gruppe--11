@@ -53,7 +53,7 @@ Til testing har vi, slik oppgaven ber om, benyttet oss av Jest.
 ### Hindringer underveis
 Da vi startet å bygge applikasjonen hadde vi to vulnerabilities i React Native, i pakkene ws (high vulnerability) og lodash (low vulnerability). For å bli kvitt dem oppdaterte vi React Native til en nyere versjon, 0.57.0. Denne versjonen av React Native viste seg å ikke være kompatibel med Expo, slik at vi ikke fikk til å bruke dem sammen. For å kunne utvikle måtte vi altså nedgradere tilbake versjon 0.55.4, til tross for at dette vil si at vi har vulnerabilities i programmet.
 
-Vi opplevde også noen problemer med å sjekke funksjonalitet på mobil. Ingen på gruppen har mobil med IOS, så for å verifisere at appen fungerer på IOS måtte vi bruke en simulator. Noen gruppemedlemmer opplevde også problemer med Expo-appen, der appen bl.a. ikke oppdaterte seg i sanntid og krevde mange forsøk med lasting inn på nytt før oppdatert kode viste seg, eller ga falsk feilmedling da den ble åpnet som gjorde det umulig å jobbe på en av mobilene.
+Vi opplevde også noen problemer med å sjekke funksjonalitet på mobil. Ingen på gruppen har mobil med IOS, så for å verifisere at appen fungerer på IOS måtte vi bruke en simulator. Noen gruppemedlemmer opplevde problemer med Expo-appen, hvilket spiste opp mye tid.
 
 ## Tutorial
 ### Hvordan legge til push notifications
