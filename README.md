@@ -52,6 +52,11 @@ Da vi startet å bygge applikasjonen, hadde vi to vulnerabilities i React Native
 
 Vi opplevde også noen problemer med å sjekke funksjonalitet på mobil. Ingen på gruppen har mobil med IOS, så for å verifisere at appen fungerer på IOS måtte vi bruke en simulator. Noen gruppemedlemmer opplevde også problemer med Expo-appen, der appen bl.a. ikke oppdaterte seg i sanntid og krevde mange forsøk med lasting inn på nytt før oppdatert kode viste seg, eller ga falsk feilmedling da den ble åpnet som gjorde det umulig å jobbe på en av mobilene.
 
+## Tutorial
+### Hvordan legge til push notifications
+1. Lorem
+2. Ipsum
+
 ## Gruppemedlemmer
 * [Minh Ha Do](https://github.com/mhado)    
 * [Kim Duong](https://github.com/kimduo)    
