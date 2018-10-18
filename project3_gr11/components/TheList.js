@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import {ListView, TextInput, View} from 'react-native';
 import {Button, CheckBox, Icon, List, ListItem, Text } from 'native-base';
 
-export class SwipeableList extends Component {
+export class TheList extends Component {
     constructor(props) {
         super(props);
         this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
-            newTodoInput: "",
+            task: "",
             //Takes in an array of to-do's
             listOfTodos: [
                 { id: 2, task: "Bli ferdig med denne greia" },
@@ -21,9 +21,12 @@ export class SwipeableList extends Component {
     }
 
     addNewTodoInput = (txt) => {
-        let listOfTodos = this.state.listOfTodos;
-        listOfTodos.push({id: new Date(), task: txt});
-        this.setState({listOfTodos})
+        if (!(this.state.task === "")) {
+            let listOfTodos = this.state.listOfTodos;
+            listOfTodos.push({id: new Date(), task: txt});
+            this.setState({listOfTodos})
+            console.log(txt);
+        }
     }
 
     onCheckBoxPress(id) {
@@ -46,7 +49,6 @@ export class SwipeableList extends Component {
         }
     }
 
-
     deleteRow(secId, rowId, rowMap) {
         rowMap[`${secId}${rowId}`].props.closeRow();
         const newData = [...this.state.listOfTodos];
@@ -55,6 +57,10 @@ export class SwipeableList extends Component {
     }
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+        console.log("mordi" + this.state.selectedTodoId);
+        if(this.state.selectedTodoId.length === this.state.listOfTodos.length) {
+            console.log("checked are equals listoftodos");
+        }
         return (
             <View>
                 <TextInput
@@ -87,8 +93,6 @@ export class SwipeableList extends Component {
         );
     }
 }
-
-
 
 
 
