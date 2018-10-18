@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import { ListView } from 'react-native';
-import {Button, CheckBox, Icon, List, ListItem, Text} from 'native-base';
+import {ListView, TextInput, View} from 'react-native';
+import {Button, CheckBox, Icon, List, ListItem, Text } from 'native-base';
 
 export class SwipeableList extends Component {
     constructor(props) {
         super(props);
         this.ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         this.state = {
+            newTodoInput: "",
             //Takes in an array of to-do's
             listOfTodos: [
                 { id: 2, task: "Bli ferdig med denne greia" },
@@ -17,6 +18,12 @@ export class SwipeableList extends Component {
             ],
             selectedTodoId: []
         };
+    }
+
+    addNewTodoInput = (txt) => {
+        let listOfTodos = this.state.listOfTodos;
+        listOfTodos.push({id: new Date(), task: txt});
+        this.setState({listOfTodos})
     }
 
     onCheckBoxPress(id) {
@@ -45,26 +52,34 @@ export class SwipeableList extends Component {
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
-            <List
-                rightOpenValue={-75}
-                enableEmptySections={true}
-                dataSource={ds.cloneWithRows(this.state.listOfTodos)}
-                renderRow={(listOfTodos) =>
+            <View>
+                <TextInput
+                    placeholder='Enter a task...'
+                    onChangeText= {(text) => this.setState({task:text})}
+                />
+                <Button bordered
+                    onPress={() =>  this.addNewTodoInput(this.state.task)}>
+                    <Text> add </Text>
+                </Button>
+                <List
+                    rightOpenValue={-75}
+                    enableEmptySections={true}
+                    dataSource={ds.cloneWithRows(this.state.listOfTodos)}
+                    renderRow={(listOfTodos) =>
                     <ListItem>
                         <CheckBox
                             checked={this.state.selectedTodoId.includes(listOfTodos.id)}
                             onPress={()=>this.onCheckBoxPress(listOfTodos.id)}
                         />
                         <Text>{listOfTodos.task}</Text>
-
                     </ListItem>}
                     renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
                     <Icon active name="trash" />
                     </Button>
-                }
-
-            />
+                    }
+                    />
+        </View>
         );
     }
 }

@@ -5,7 +5,7 @@ export default class AddTodo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newTodoInput: []
+            newTodoInput: ""
         };
     }
 
@@ -28,9 +28,6 @@ export default class AddTodo extends Component {
                         title="Add"
                         onPress={() =>  this.addNewTodoInput(this.state.task)}
                     />
-                    {this.state.newTodoInput.map((value) => {
-                        return value
-                    })}
                 </View>
             </ScrollView>
         );
