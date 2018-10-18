@@ -38,16 +38,20 @@ export class SwipeableList extends Component {
         this.setState({
             selectedTodoId: tmp
         });
+
+        console.log("List of todos length: " + this.state.listOfTodos.length + ", " + "selected todo id length: " + this.state.selectedTodoId.length);
+
+        if (this.state.listOfTodos.length == this.state.selectedTodoId.length){
+            alert("Yay, you did everything today! Good job! (≧▽≦)");
+        }
     }
 
 
     deleteRow(secId, rowId, rowMap) {
-        /*
         rowMap[`${secId}${rowId}`].props.closeRow();
         const newData = [...this.state.listOfTodos];
         newData.splice(rowId, 1);
         this.setState({ listOfTodos: newData });
-        */
     }
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
