@@ -51,10 +51,6 @@ export class TheList extends Component {
     }
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-        console.log("mordi" + this.state.selectedTodoId);
-        if(this.state.selectedTodoId.length === this.state.listOfTodos.length) {
-            console.log("checked are equals listoftodos");
-        }
         return (
             <View>
                 <TextInput
