@@ -9,6 +9,7 @@ import InputField from "../components/InputField";
 import { dailyNotification } from "../api/pushNotifications";
 import { NotificationSwitch } from "../components/NotificationSwitch";
 import { Notifications } from 'expo';
+import { storeData, retrieveData } from "../api/AsyncStorage";
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -18,25 +19,41 @@ export default class HomeScreen extends Component {
   constructor(props) {
       super(props);
       this.state ={
-        //TODO: enableNotification should be saved via asyncStorage
         enableNotification: false
       }
   }
 
+  componentWillMount() {
+    /*LOCAL NOTIFICATION*/
+    //Promise object retrieved from retrieveData is handled here
+    //Get state of enabledNotification saved in Asyncstorage
+    retrieveData('dailyReminder').then((item) => {
+        this.setState ({
+            enableNotification: (item == true)
+        });
+    }).catch((error) => {
+        console.log("Promise is rejected: " + error);
+    });
+
+  }
+
+  /*LOCAL NOTIFICATION*/
   //Toggle daily reminder
   toggleNotification = (value) => {
       this.setState({enableNotification: value});
-        if(value == true) {
-            //Schedule daily reminder
-            dailyNotification();
-        } else {
-            //If toggle is of, remove scheduled notification
-            Notifications.cancelAllScheduledNotificationsAsync();
-        }
+      if(value == true) {
+          //Schedule daily reminder
+          dailyNotification();
+      } else {
+          //If toggle is off, remove scheduled notification
+          Notifications.cancelAllScheduledNotificationsAsync();
+      }
+      //Save toggled daily reminder to AsyncStorage
+      storeData('dailyReminder', value);
   }
 
   render() {
-    return (
+      return (
       <ScrollView style={styles.container}>
             <Container>
                 <AppHeader/>
@@ -44,7 +61,7 @@ export default class HomeScreen extends Component {
                 <InputField/>
                 <SwipeableList todos={listData}/>
             </Content>
-            {/*Toggle daily reminder*/}
+            {/*LOCAL NOTIFICATION, switch*/}
             <NotificationSwitch toggleNotif={this.toggleNotification} notifValue={this.state.enableNotification}/>
         </Container>
       </ScrollView>
