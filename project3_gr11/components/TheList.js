@@ -69,9 +69,11 @@ export class TheList extends Component {
             <View>
                 <TextInput
                     placeholder='Enter a task...'
+                    // Set entered text into a state called task
                     onChangeText= {(text) => this.setState({task:text})}
                 />
                 <Button bordered
+                        // Takes task above as an argument and add it into the array
                         onPress={() =>  this.addNewTodoInput(this.state.task)}>
                     <Text> add </Text>
                 </Button>
