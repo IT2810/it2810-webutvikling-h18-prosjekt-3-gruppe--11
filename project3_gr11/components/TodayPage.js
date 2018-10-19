@@ -25,7 +25,6 @@ export default class TodayPage extends React.Component {
         }).catch((error) => {
             console.log("Promise is rejected: " + error);
         });
-
     }
 
     /*LOCAL NOTIFICATION*/

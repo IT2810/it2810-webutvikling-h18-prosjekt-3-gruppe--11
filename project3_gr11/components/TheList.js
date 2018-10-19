@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {ListView, TextInput, View} from 'react-native';
 import {Button, CheckBox, Icon, List, ListItem, Text } from 'native-base';
+import {retrieveData, storeData} from "../api/AsyncStorage";
 
 export class TheList extends Component {
     constructor(props) {
@@ -9,21 +10,27 @@ export class TheList extends Component {
         this.state = {
             task: "",
             //Takes in an array of to-do's
-            listOfTodos: [
-                { id: 2, task: "Bli ferdig med denne greia" },
-                { id: 4, task: "En oppgave" },
-                { id: 6, task: "En annen oppgave som har veldig lang tekst Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor" },
-                { id: 8, task: "Fullført oppgave" },
-                { id: 10, task: "Jeg hater denne lista" },
-            ],
+            listOfTodos: [],
             selectedTodoId: []
         };
+    }
+
+    // Retrieve list data from AsyncStorage
+    componentWillMount() {
+        retrieveData('todoData').then((item) => {
+            this.setState ({
+                listOfTodos: (item)
+            });
+        }).catch((error) => {
+            console.log("Promise is rejected: " + error);
+        });
     }
 
     addNewTodoInput = (txt) => {
         if (!(this.state.task === "")) {
             let listOfTodos = this.state.listOfTodos;
             listOfTodos.push({id: new Date(), task: txt});
+            storeData('todoData', listOfTodos);
             this.setState({listOfTodos})
             console.log(txt);
         }
@@ -37,7 +44,6 @@ export class TheList extends Component {
         } else {
             tmp.push( id );
         }
-
         this.setState({
             selectedTodoId: tmp
         });
