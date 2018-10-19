@@ -1,10 +1,11 @@
 import React from "react";
-import {dailyNotification} from "../api/pushNotifications";
+import {dailyNotification} from "../api/PushNotifications";
 import { Notifications } from "expo";
 import {Container, Content, Footer, Header, Title} from "native-base";
 import {TheList} from "./TheList";
 import {NotificationSwitch} from "./NotificationSwitch";
 import { storeData, retrieveData } from "../api/AsyncStorage";
+import {StyleSheet} from "react-native";
 
 export default class TodayPage extends React.Component {
     constructor(props) {
@@ -45,15 +46,15 @@ export default class TodayPage extends React.Component {
     render() {
         return (
             <Container>
-                <Header transparent style={{backgroundColor: "#f2c413"}}>
-                    <Title>Moren din sin liste</Title>
+                <Header transparent style={styles.header}>
+                    <Title style={styles.title}>T O D A Y   L I S T</Title>
                 </Header>
-                <Content>
+                <Content style={styles.container}>
                     {/*<AddTodo/>*/}
                     <TheList />
                     {/*Toggle daily reminder*/}
                 </Content>
-                <Footer>
+                <Footer style={styles.footer}>
                     {/*LOCAL NOTIFICATION, switch*/}
                     <NotificationSwitch toggleNotif={this.toggleNotification} notifValue={this.state.enableNotification}/>
                 </Footer>
@@ -61,3 +62,20 @@ export default class TodayPage extends React.Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 20,
+    },
+    footer: {
+        backgroundColor: "#33ccff",
+    },
+    title: {
+        fontSize: 33,
+        marginTop: 13,
+    },
+    header: {
+        height: 100,
+        backgroundColor: "#33ccff",
+    },
+});

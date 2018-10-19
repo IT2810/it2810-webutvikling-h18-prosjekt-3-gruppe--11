@@ -35,7 +35,6 @@ export async function removeData(key) {
 export async function retrieveAllKeys() {
     try {
         const value = await AsyncStorage.getAllKeys();
-        console.log(value);
     } catch (error) {
         console.log(error);
     }

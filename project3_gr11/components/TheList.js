@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ListView, TextInput, View} from 'react-native';
+import {ListView, StyleSheet, TextInput, View} from 'react-native';
 import {Button, CheckBox, Icon, List, ListItem, Text } from 'native-base';
 import {removeData, retrieveData, storeData} from "../api/AsyncStorage";
 
@@ -39,7 +39,6 @@ export class TheList extends Component {
             listOfTodos.push({id: new Date(), task: txt});
             storeData('todoData', listOfTodos);
             this.setState({listOfTodos})
-            console.log(txt);
         }
     }
 
@@ -54,6 +53,10 @@ export class TheList extends Component {
         }
         storeData('checkedTodoData', tmp);
         this.setState({selectedTodoId: tmp});
+
+    if (this.state.listOfTodos.length == this.state.selectedTodoId.length){
+    alert("Yay, you did everything today! Good job! (≧▽≦)");
+}
     }
 
     deleteRow(secId, rowId, rowMap) {
@@ -64,24 +67,18 @@ export class TheList extends Component {
         storeData('todoData', newData);
     }
     render() {
-        retrieveData('checkedTodoData').then((item) => {
-            console.log(item);
-        }).catch((error) => {
-            console.log("Promise is rejected: " + error);
-        });
-        console.log(retrieveData('checkedTodoData'));
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
             <View>
-                <TextInput
+                <TextInput multiline = {true} style={styles.input}
                     placeholder='Enter a task...'
                     onChangeText= {(text) => this.setState({task:text})}
                 />
-                <Button bordered
+                <Button bordered style={styles.button}
                     onPress={() =>  this.addNewTodoInput(this.state.task)}>
-                    <Text> add </Text>
+                    <Text style={styles.btntxt}> add </Text>
                 </Button>
-                <List
+                <List style={styles.listcontainer}
                     rightOpenValue={-75}
                     enableEmptySections={true}
                     dataSource={ds.cloneWithRows(this.state.listOfTodos)}
@@ -91,7 +88,7 @@ export class TheList extends Component {
                             checked={this.state.selectedTodoId.includes(listOfTodos.id)}
                             onPress={()=>this.onCheckBoxPress(listOfTodos.id)}
                         />
-                        <Text>{listOfTodos.task}</Text>
+                        <Text style={styles.textcontainer}>{listOfTodos.task}</Text>
                     </ListItem>}
                     renderRightHiddenRow={(data, secId, rowId, rowMap) =>
                     <Button full danger onPress={_ => this.deleteRow(secId, rowId, rowMap)}>
@@ -104,5 +101,30 @@ export class TheList extends Component {
     }
 }
 
+const styles = StyleSheet.create({
+    textcontainer: {
+        margin: 8,
+    },
+    input: {
+        marginRight: 10,
+        marginLeft: 10,
+        marginTop: 10,
+        fontSize: 30,
+    },
+    button: {
+        alignSelf: 'center',
+        width: '90%',
+        height: 60,
+        marginTop: 10,
+        marginBottom: 10,
+
+    },
+    listcontainer: {
+        marginLeft: 20,
+    },
+    btntxt: {
+        marginLeft: '40%',
+    }
+});
 
 
