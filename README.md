@@ -109,6 +109,8 @@ Vi har testet og verifisert at appen fungerer slik ønsket på både Android og 
 * [Catriona Thora Tørklep](https://github.com/CatrionaTorklep)
 
 ### Credits
-Tredjeparts UI bibliotek, NativeBase: https://nativebase.io/
+Tredjeparts UI bibliotek:
+
+NativeBase: https://nativebase.io/
 
 Expo API: [Expo notifikasjon dokumentasjon](https://github.com/expo/expo/blob/master/apps/native-component-list/screens/NotificationScreen.js)
