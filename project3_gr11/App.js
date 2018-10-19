@@ -25,19 +25,15 @@ export default class App extends React.Component {
     }
   }
 
-  _loadResourcesAsync = async () => {
-    return Promise.all([
-      Asset.loadAsync([
-        require('./assets/images/robot-dev.png'),
-        require('./assets/images/robot-prod.png'),
-      ]),
-      Font.loadAsync({
-        ...Icon.Ionicons.font,
-        'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
-        'Roboto_medium': require('./assets/fonts/Roboto-Medium.ttf'),
-      }),
-    ]);
-  };
+    _loadResourcesAsync = async () => {
+        return Promise.all([
+            Font.loadAsync({
+                ...Icon.Ionicons.font,
+                'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
+                'Roboto_medium': require('./assets/fonts/Roboto-Medium.ttf'),
+            }),
+        ]);
+    };
 
   _handleLoadingError = error => {
     // In this case, you might want to report the error to your error
