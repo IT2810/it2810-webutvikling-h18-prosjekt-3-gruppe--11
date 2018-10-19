@@ -4,9 +4,9 @@ import { Permissions, Notifications } from 'expo';
 //Date object for selecting time of the day
 let scheduledTime = new Date();
 scheduledTime.setHours(9);
-// scheduledTime.setMinutes(0);
+scheduledTime.setMinutes(0);
+scheduledTime.setSeconds(0);
 
-//TODO: Edit notification description
 const localNotification = {
     title: 'What are you going to do today?',
     ios: {
@@ -25,7 +25,7 @@ const schedulingOptions =  {
 };
 
 export function dailyNotification(){
-    console.log("Scheduled notification set to: " + scheduledTime);
+    // console.log("Scheduled notification set to: " + scheduledTime);
     scheduledNotification(schedulingOptions);
 
     //Trigger a local notification immediately, for testing purposes

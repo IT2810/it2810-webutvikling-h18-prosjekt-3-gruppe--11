@@ -2,7 +2,7 @@
 ### Oppgavebeskrivelse
 I dette prosjektet fikk vi i oppgave å designe og implementere en "Personal Information and Motivation Manager" app for mobil, med React Native. Hovedformålet her var å demonstrere funksjonaliteten og bruk av teknologien. Det tenkes her at brukeren motiveres ved at applikasjonen skal støtte en form for registrering av personlige mål og resultater, ved enten fysisk eller intellektuell aktivitet. 
 
-Mer infomasjon om oppgaven kan finnes på Blackboard (Krever tilgang).
+Mer infomasjon om oppgaven kan finnes på Blackboard (krever tilgang).
 
 ## Teknologi
 Følgende er nødvendig for å kjøre prosjektet:
@@ -11,8 +11,7 @@ Følgende er nødvendig for å kjøre prosjektet:
 - Node.js
 
 Prosjektet er hovedsakelig drevet av:
-- React
-- CSS
+- React Native
 
 ## Hvordan kjøre programmet
 Klon dette prosjektet. Kjør deretter følgende linje i prosjektmappen:
@@ -23,7 +22,7 @@ Et vindu med en QR-kode vil åpnes i nettleseren din. Denne QR-koden skal i till
 
 ## Om applikasjonen
 ### En to-do liste
-Vi har laget en daglig to-do list som roser bruker for å fullføre alle dagens mål, og som kan minne bruker på at de burde opprette eller fullføre gjøremål i løpet av dagen ved hjelp av push-varsler. Vi valgte å bruke push-varsler som det utover basic React Native UI-problematikk fordi vi følte funksjonaliteten samsvarte godt med formålet til en daglig to-do liste.
+Vi har laget en to-do list som hjelper en bruker med å holde styr på deres daglige mål. Appen kan minne bruker på at de burde opprette eller fullføre gjøremål i løpet av dagen ved hjelp av push-varsler. Vi valgte å bruke push-varsler som det utover basic React Native UI-problematikk fordi vi følte funksjonaliteten samsvarte godt med formålet til en daglig to-do liste.
 
 ### Komponentdiagram
 Vi tok utgangspunkt i følgende komponentdiagram da vi utviklet applikasjonen.
@@ -53,7 +52,7 @@ Til testing har vi, slik oppgaven ber om, benyttet oss av Jest.
 ### Hindringer underveis
 Da vi startet å bygge applikasjonen hadde vi to vulnerabilities i React Native, i pakkene ws (high vulnerability) og lodash (low vulnerability). For å bli kvitt dem oppdaterte vi React Native til en nyere versjon, 0.57.0. Denne versjonen av React Native viste seg å ikke være kompatibel med Expo, slik at vi ikke fikk til å bruke dem sammen. For å kunne utvikle måtte vi altså nedgradere tilbake versjon 0.55.4, til tross for at dette vil si at vi har vulnerabilities i programmet.
 
-Vi opplevde også noen problemer med å sjekke funksjonalitet på mobil. Ingen på gruppen har mobil med IOS, så for å verifisere at appen fungerer på IOS måtte vi bruke en simulator. Noen gruppemedlemmer opplevde problemer med Expo-appen, hvilket spiste opp mye tid.
+Vi opplevde også utfordring med å sjekke funksjonalitet på mobil. Ingen på gruppen hadde mobil med IOS, så for å verifisere at appen fungerte på IOS måtte vi bruke en simulator, som ikke kan brukes like hyppig under utvikling som en mobil. Noen gruppemedlemmer opplevde også problemer med Expo-appen, hvilket spiste opp mye tid.
 
 ## Tutorial
 ### Hvordan legge til push notifications
