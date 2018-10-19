@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "height": 1334,
+    }
+  }
+>
+  <View
+    onLayout={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "transparent",
+            "borderBottomWidth": 0.5,
+            "elevation": 0,
+            "flexDirection": "row",
+            "height": 64,
+            "justifyContent": "center",
+            "left": 0,
+            "paddingLeft": 6,
+            "paddingRight": 10,
+            "paddingTop": 18,
+            "right": 0,
+            "shadowColor": null,
+            "shadowOffset": null,
+            "shadowOpacity": null,
+            "shadowRadius": null,
+            "top": 0,
+          },
+          Object {
+            "backgroundColor": "#33ccff",
+            "height": 100,
+          },
+        ]
+      }
+      transparent={true}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontFamily": "System",
+              "fontSize": 17,
+              "fontWeight": "700",
+              "marginLeft": undefined,
+              "paddingLeft": 4,
+              "paddingTop": 1,
+              "textAlign": "center",
+            },
+            Object {
+              "fontSize": 33,
+              "marginTop": 13,
+            },
+          ]
+        }
+      >
+        T O D A Y   L I S T
+      </Text>
+    </View>
+  </View>
+  <RCTScrollView
+    automaticallyAdjustContentInsets={false}
+    contentContainerStyle={
+      Array [
+        Object {
+          "padding": undefined,
+        },
+        undefined,
+      ]
+    }
+    contentInset={
+      Object {
+        "bottom": 0,
+      }
+    }
+    enableAutomaticScroll={true}
+    enableResetScrollToCoords={true}
+    extraHeight={75}
+    extraScrollHeight={0}
+    getScrollResponder={[Function]}
+    handleOnScroll={[Function]}
+    keyboardDismissMode="interactive"
+    keyboardOpeningTime={250}
+    keyboardShouldPersistTaps="handled"
+    keyboardSpace={0}
+    onScroll={[Function]}
+    resetKeyboardSpace={[Function]}
+    resetScrollToCoords={
+      Object {
+        "x": 0,
+        "y": 0,
+      }
+    }
+    scrollEventThrottle={1}
+    scrollForExtraHeightOnAndroid={[Function]}
+    scrollToEnd={[Function]}
+    scrollToFocusedInput={[Function]}
+    scrollToPosition={[Function]}
+    showsVerticalScrollIndicator={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "transparent",
+          "flex": 1,
+        },
+        Object {
+          "marginTop": 20,
+        },
+      ]
+    }
+    viewIsInsideTabBar={false}
+  >
+    <View>
+      <View>
+        <TextInput
+          allowFontScaling={true}
+          multiline={true}
+          onChangeText={[Function]}
+          placeholder="Enter a task..."
+          style={
+            Object {
+              "fontSize": 30,
+              "marginLeft": 10,
+              "marginRight": 10,
+              "marginTop": 10,
+            }
+          }
+        />
+        <View
+          accessible={true}
+          isTVSelectable={true}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "alignSelf": "center",
+              "backgroundColor": "transparent",
+              "borderBottomWidth": 1,
+              "borderColor": "#007aff",
+              "borderLeftWidth": 1,
+              "borderRadius": 5,
+              "borderRightWidth": 1,
+              "borderTopWidth": 1,
+              "borderWidth": 1,
+              "elevation": null,
+              "flexDirection": "row",
+              "height": 60,
+              "justifyContent": "space-between",
+              "marginBottom": 10,
+              "marginTop": 10,
+              "opacity": 1,
+              "paddingBottom": 6,
+              "paddingTop": 6,
+              "shadowColor": null,
+              "shadowOffset": null,
+              "shadowOpacity": null,
+              "shadowRadius": null,
+              "width": "90%",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "color": "#007aff",
+                  "fontFamily": "System",
+                  "fontSize": 16.5,
+                  "marginLeft": 0,
+                  "marginRight": 0,
+                  "paddingLeft": 16,
+                  "paddingRight": 16,
+                },
+                Object {
+                  "marginLeft": "40%",
+                },
+              ]
+            }
+            uppercase={false}
+          >
+             add 
+          </Text>
+        </View>
+        <RCTScrollView
+          closeOnRowBeginSwipe={false}
+          closeOnRowPress={true}
+          closeOnScroll={true}
+          dataSource={
+            ListViewDataSource {
+              "items": 0,
+            }
+          }
+          directionalDistanceChangeThreshold={2}
+          disableLeftSwipe={false}
+          disableRightSwipe={false}
+          enableEmptySections={true}
+          leftOpenValue={0}
+          onScroll={[Function]}
+          previewFirstRow={false}
+          recalculateHiddenLayout={false}
+          renderRightHiddenRow={[Function]}
+          renderRow={[Function]}
+          renderScrollComponent={[Function]}
+          rightOpenValue={-75}
+          style={
+            Array [
+              Object {},
+              Object {
+                "marginLeft": 20,
+              },
+            ]
+          }
+          swipeToOpenPercent={50}
+        >
+          <View />
+        </RCTScrollView>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#F8F8F8",
+          "borderColor": "#cbcbcb",
+          "borderTopWidth": 0.5,
+          "elevation": 3,
+          "flexDirection": "row",
+          "height": 55,
+          "justifyContent": "center",
+          "left": 0,
+          "paddingBottom": 0,
+          "right": 0,
+        },
+        Object {
+          "backgroundColor": "#33ccff",
+        },
+      ]
+    }
+  >
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+      >
+        Enable daily reminder
+      </Text>
+      <RCTSwitch
+        disabled={false}
+        onChange={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onValueChange={[Function]}
+        style={
+          Array [
+            Object {
+              "height": 31,
+              "width": 51,
+            },
+            undefined,
+          ]
+        }
+        value={false}
+      />
+    </View>
+  </View>
+</View>
+`;

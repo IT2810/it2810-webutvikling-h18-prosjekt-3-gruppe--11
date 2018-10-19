@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View>
+  <TextInput
+    allowFontScaling={true}
+    multiline={true}
+    onChangeText={[Function]}
+    placeholder="Enter a task..."
+    style={
+      Object {
+        "fontSize": 30,
+        "marginLeft": 10,
+        "marginRight": 10,
+        "marginTop": 10,
+      }
+    }
+  />
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "transparent",
+        "borderBottomWidth": 1,
+        "borderColor": "#007aff",
+        "borderLeftWidth": 1,
+        "borderRadius": 5,
+        "borderRightWidth": 1,
+        "borderTopWidth": 1,
+        "borderWidth": 1,
+        "elevation": null,
+        "flexDirection": "row",
+        "height": 60,
+        "justifyContent": "space-between",
+        "marginBottom": 10,
+        "marginTop": 10,
+        "opacity": 1,
+        "paddingBottom": 6,
+        "paddingTop": 6,
+        "shadowColor": null,
+        "shadowOffset": null,
+        "shadowOpacity": null,
+        "shadowRadius": null,
+        "width": "90%",
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "color": "#007aff",
+            "fontFamily": "System",
+            "fontSize": 16.5,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "paddingLeft": 16,
+            "paddingRight": 16,
+          },
+          Object {
+            "marginLeft": "40%",
+          },
+        ]
+      }
+      uppercase={false}
+    >
+       add 
+    </Text>
+  </View>
+  <RCTScrollView
+    closeOnRowBeginSwipe={false}
+    closeOnRowPress={true}
+    closeOnScroll={true}
+    dataSource={
+      ListViewDataSource {
+        "items": 0,
+      }
+    }
+    directionalDistanceChangeThreshold={2}
+    disableLeftSwipe={false}
+    disableRightSwipe={false}
+    enableEmptySections={true}
+    leftOpenValue={0}
+    onScroll={[Function]}
+    previewFirstRow={false}
+    recalculateHiddenLayout={false}
+    renderRightHiddenRow={[Function]}
+    renderRow={[Function]}
+    renderScrollComponent={[Function]}
+    rightOpenValue={-75}
+    style={
+      Array [
+        Object {},
+        Object {
+          "marginLeft": 20,
+        },
+      ]
+    }
+    swipeToOpenPercent={50}
+  >
+    <View />
+  </RCTScrollView>
+</View>
+`;
