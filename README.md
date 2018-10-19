@@ -100,7 +100,7 @@ Vi opplevde også utfordring med å sjekke funksjonalitet på mobil. Ingen på g
 En annen hindring som vi burde ha sett på tidligere var testing for async/await, slik som nevnt under testing punktet. På grunn av dårlig disponering av tid fra gruppens side måtte vi prioritere andre funksjonaliteter og medførte derfor at denne biten ble nedprioritert.
 
 ### PLATTFORMUAVHENGIGHET
-Vi har testet og verifisert at appen fungerer slik ønsket på både Android og IOS. Som tidligere nevnt hadde ingen av gruppemedlemmene IOS og hadde derfor begrenset mulighet til å teste på IOS da simulatoren krever autentisering. Vi har testet på Android med Samsung Galaxy S7 Edge (v8.0.0), Samsung Galaxy S8 (v8.0.0) og LG V30 (v8.0.0). På IOS har vi fått testa for iPhone 6 (v12.0.0).
+Vi har testet og verifisert at appen fungerer slik ønsket på både Android og IOS. Som tidligere nevnt hadde ingen av gruppemedlemmene IOS og hadde derfor begrenset mulighet til å teste på IOS da simulatoren krever autentisering. Vi har testet på Android med Samsung Galaxy S7 Edge (v8.0.0), Samsung Galaxy S8 (v8.0.0) og LG V30 (v8.0.0). På IOS har vi fått testa for iPhone 8 (v12.0.0).
 
 
 ## Gruppemedlemmer
