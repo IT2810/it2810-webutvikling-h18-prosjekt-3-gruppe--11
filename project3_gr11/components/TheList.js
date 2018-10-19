@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {ListView, TextInput, View} from 'react-native';
 import {Button, CheckBox, Icon, List, ListItem, Text } from 'native-base';
-import {retrieveData, storeData} from "../api/AsyncStorage";
+import {removeData, retrieveData, storeData} from "../api/AsyncStorage";
 
 export class TheList extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ export class TheList extends Component {
             task: "",
             //Takes in an array of to-do's
             listOfTodos: [],
-            selectedTodoId: []
+            selectedTodoId: [],
         };
     }
 
@@ -20,6 +20,13 @@ export class TheList extends Component {
         retrieveData('todoData').then((item) => {
             this.setState ({
                 listOfTodos: (item)
+            });
+        }).catch((error) => {
+            console.log("Promise is rejected: " + error);
+        });
+        retrieveData('checkedTodoData').then((item) => {
+            this.setState ({
+                selectedTodoId: (item)
             });
         }).catch((error) => {
             console.log("Promise is rejected: " + error);
@@ -43,10 +50,10 @@ export class TheList extends Component {
             tmp.splice( tmp.indexOf(id), 1 );
         } else {
             tmp.push( id );
+
         }
-        this.setState({
-            selectedTodoId: tmp
-        });
+        storeData('checkedTodoData', tmp);
+        this.setState({selectedTodoId: tmp});
     }
 
     deleteRow(secId, rowId, rowMap) {
@@ -56,6 +63,12 @@ export class TheList extends Component {
         this.setState({ listOfTodos: newData });
     }
     render() {
+        retrieveData('checkedTodoData').then((item) => {
+            console.log(item);
+        }).catch((error) => {
+            console.log("Promise is rejected: " + error);
+        });
+        console.log(retrieveData('checkedTodoData'));
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (
             <View>
