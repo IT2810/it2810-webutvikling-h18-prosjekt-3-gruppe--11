@@ -18,16 +18,20 @@ export class TheList extends Component {
     // Retrieve list data from AsyncStorage
     componentWillMount() {
         retrieveData('todoData').then((item) => {
-            this.setState ({
-                listOfTodos: (item)
-            });
+            if(!(item === null)) {
+                this.setState ({
+                    listOfTodos: (item)
+                });
+            }
         }).catch((error) => {
             console.log("Promise is rejected: " + error);
         });
         retrieveData('checkedTodoData').then((item) => {
-            this.setState ({
-                selectedTodoId: (item)
-            });
+            if(!(item === null)) {
+                this.setState ({
+                    selectedTodoId: (item)
+                });
+            }
         }).catch((error) => {
             console.log("Promise is rejected: " + error);
         });
@@ -38,7 +42,7 @@ export class TheList extends Component {
             let listOfTodos = this.state.listOfTodos;
             listOfTodos.push({id: new Date(), task: txt});
             storeData('todoData', listOfTodos);
-            this.setState({listOfTodos})
+            this.setState({listOfTodos: listOfTodos})
         }
     }
 
@@ -66,6 +70,7 @@ export class TheList extends Component {
         this.setState({ listOfTodos: newData });
         storeData('todoData', newData);
     }
+
     render() {
         const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
         return (

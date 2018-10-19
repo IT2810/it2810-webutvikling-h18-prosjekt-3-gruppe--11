@@ -4,7 +4,7 @@ import { Notifications } from "expo";
 import {Container, Content, Footer, Header, Title} from "native-base";
 import {TheList} from "./TheList";
 import {NotificationSwitch} from "./NotificationSwitch";
-import { storeData, retrieveData } from "../api/AsyncStorage";
+import {storeData, retrieveData, removeData} from "../api/AsyncStorage";
 import {StyleSheet} from "react-native";
 
 export default class TodayPage extends React.Component {
