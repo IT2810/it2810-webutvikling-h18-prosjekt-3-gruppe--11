@@ -11,8 +11,7 @@ Følgende er nødvendig for å kjøre prosjektet:
 - Node.js
 
 Prosjektet er hovedsakelig drevet av:
-- React
-- CSS
+- React Native
 
 ## Hvordan kjøre programmet
 Klon dette prosjektet. Kjør deretter følgende linje i prosjektmappen:
