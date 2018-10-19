@@ -61,6 +61,7 @@ export class TheList extends Component {
         const newData = [...this.state.listOfTodos];
         newData.splice(rowId, 1);
         this.setState({ listOfTodos: newData });
+        storeData('todoData', newData);
     }
     render() {
         retrieveData('checkedTodoData').then((item) => {
